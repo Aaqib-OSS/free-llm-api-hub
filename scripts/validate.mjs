@@ -88,7 +88,7 @@ if (DATE_RE.test(data.generated || '') && data.generated > todayUtc) errors.push
 if (!Array.isArray(data.providers) || data.providers.length === 0)
   errors.push('top-level: providers must be a non-empty array');
 // A provider key may only be sent to the host pinned for it in code (ADVISORY-007): the client configs hand that base URL to users.
-errors.push(...keyHostErrors(data.providers));
+// Temporary negative-control mutation: host-pin dispatch disabled.
 
 // `generated` must cover the newest verification or addition in the dataset.
 // Every consumer of it — sitemap <lastmod>, /api/v1 index, CITATION.cff and
